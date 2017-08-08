@@ -26,7 +26,7 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
  " Disable AutoComplPop.
  let g:acp_enableAtStartup = 0
  " Use neocomplete.
- let g:neocomplete#enable_at_startup = 1
+"  let g:neocomplete#enable_at_startup = 1
  " Use smartcase.
  let g:neocomplete#enable_smart_case = 1
  " Set minimum syntax keyword length.
@@ -121,14 +121,14 @@ endif
 " the best way to ween yourself of arrow keys on to hjkl)
 " http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
 
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>"
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>"
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 
 "key mapping for window navigation
 map <C-h> <C-w>h
@@ -170,6 +170,12 @@ noremap <S-tab> :bp<CR>
 nmap <leader>d :Bclose<CR>
 " close all buffers
 nmap <leader>D :bufdo bd<CR>
+
+" Set byebug breakpoint
+noremap <leader>b obyebug <Esc>
+
+" Set pry breakpoint
+noremap <leader>p orequire 'pry'; binding.pry <Esc>
 
 " Ignore some binary, versioning and backup files when auto-completing
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
@@ -277,7 +283,7 @@ if has("gui_running")
   " colorscheme base16-materia
   colorscheme base16-google-light
 else
-  colorscheme codedark
+  colorscheme solarized
 endif
 
 
@@ -327,3 +333,6 @@ endfunction
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
+
+" pathogen.vim configuration: runtime path manipulation
+execute pathogen#infect()
